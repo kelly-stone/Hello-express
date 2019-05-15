@@ -1,0 +1,24 @@
+{
+  "name": "Hello-Express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelly-stone/Hello-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kelly-stone/Hello-express/issues"
+  },
+  "homepage": "https://github.com/kelly-stone/Hello-express#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
