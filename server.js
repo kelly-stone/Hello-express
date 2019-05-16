@@ -1,21 +1,34 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var fs = require("fs");
-var multer = require("multer"); //https://www.npmjs.com/package/multer
-var upload = multer({ dest: "uploads/" });
+
+var app = express();
+var multer = require("multer");
+//var upload = multer({ dest: "uploads/" });
 
 //https://www.npmjs.com/package/multer
+//https://www.cnblogs.com/chyingp/p/express-multer-file-upload.html
+var createFolder = function(folder) {
+  try {
+    fs.accessSync(folder);
+  } catch (e) {
+    fs.mkdirSync(folder);
+  }
+};
+
+var uploadFolder = "./upload/";
+
+createFolder(uploadFolder);
+
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, "/tmp/my-uploads");
+    cb(null, uploadFolder);
   },
   filename: function(req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now());
+    cb(null, file.originalname);
   }
 });
 var upload = multer({ storage: storage });
-
-var app = express();
 
 // create application/json parser
 var jsonParser = bodyParser.json();
@@ -42,12 +55,13 @@ app.get("/", function(req, res) {
 });
 
 //upload form
-app.get("/upload", function(req, res) {
+app.get("/form", function(req, res) {
   var form = fs.readFileSync("./form.html", { encoding: "utf-8" });
   res.send(form);
 });
 // https://www.npmjs.com/package/multer
 app.post("/upload", upload.single("logo"), function(req, res) {
+  console.dir(req.file);
   res.send({ ret_code: 0 });
 });
 
