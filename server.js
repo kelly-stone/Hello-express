@@ -10,9 +10,15 @@ var app = express();
 //   res.send(responseObj);
 // });
 
-app.get("/profile/:id/user/:name", function(req, res) {
-  console.dir(req.params);
-  res.send("you are getting " + req.params.id);
+// app.get("/profile/:id/user/:name", function(req, res) {
+//   console.dir(req.params);
+//   res.send("you are getting " + req.params.id);
+// });
+
+app.get("/", function(req, res) {
+  //res.send("this is the homepage")
+  console.dir(req.query);
+  res.send("home page: " + req.query.name);
 });
 
 app.listen(3001);
