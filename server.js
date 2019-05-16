@@ -32,12 +32,9 @@ app.get("/upload", function(req, res) {
   var form = fs.readFileSync("./form.html", { encoding: "utf-8" });
   res.send(form);
 });
+app.post("/upload", function(req, res) {});
 
 app.post("/", urlencodedParser, function(req, res) {
-  console.dir(req.body);
-  res.send(req.body.name);
-});
-app.post("/upload", jsonParser, function(req, res) {
   console.dir(req.body);
   res.send(req.body.name);
 });
