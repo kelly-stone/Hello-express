@@ -1,6 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var fs = require("fs");
+var multer = require("multer"); //https://www.npmjs.com/package/multer
+var upload = multer({ dest: "uploads/" });
 var app = express();
 
 // create application/json parser
@@ -32,6 +34,7 @@ app.get("/upload", function(req, res) {
   var form = fs.readFileSync("./form.html", { encoding: "utf-8" });
   res.send(form);
 });
+// https://www.cnblogs.com/chyingp/p/express-multer-file-upload.html
 app.post("/upload", function(req, res) {});
 
 app.post("/", urlencodedParser, function(req, res) {
