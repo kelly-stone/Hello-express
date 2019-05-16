@@ -2,8 +2,12 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 var app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
 
+// create application/json parser
+var jsonParser = bodyParser.json();
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 // app.get("/", function(req, res) {
 //   //res.send("this is the homepage")
 //   var responseObj = {
@@ -21,6 +25,15 @@ app.get("/", function(req, res) {
   //res.send("this is the homepage")
   console.dir(req.query);
   res.send("home page: " + req.query.name);
+});
+
+app.post("/", urlencodedParser, function(req, res) {
+  console.dir(req.body);
+  res.send(req.body.name);
+});
+app.post("/upload", jsonParser, function(req, res) {
+  console.dir(req.body);
+  res.send(req.body.name);
 });
 
 app.listen(3001);
