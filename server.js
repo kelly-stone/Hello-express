@@ -3,6 +3,18 @@ var bodyParser = require("body-parser");
 var fs = require("fs");
 var multer = require("multer"); //https://www.npmjs.com/package/multer
 var upload = multer({ dest: "uploads/" });
+
+//https://www.npmjs.com/package/multer
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "/tmp/my-uploads");
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  }
+});
+var upload = multer({ storage: storage });
+
 var app = express();
 
 // create application/json parser
@@ -34,8 +46,10 @@ app.get("/upload", function(req, res) {
   var form = fs.readFileSync("./form.html", { encoding: "utf-8" });
   res.send(form);
 });
-// https://www.cnblogs.com/chyingp/p/express-multer-file-upload.html
-app.post("/upload", function(req, res) {});
+// https://www.npmjs.com/package/multer
+app.post("/upload", upload.single("logo"), function(req, res) {
+  res.send({ ret_code: 0 });
+});
 
 app.post("/", urlencodedParser, function(req, res) {
   console.dir(req.body);
