@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- using enctype form-data, its different to urlencoded, postman-->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <h2>UPLOAD FORM</h2>
+      <input type="file" name="logo" />
+      <input type="submit" value="submit" />
+    </form>
+  </body>
+</html>

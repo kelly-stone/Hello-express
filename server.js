@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-
+var fs = require("fs");
 var app = express();
 
 // create application/json parser
@@ -25,6 +25,12 @@ app.get("/", function(req, res) {
   //res.send("this is the homepage")
   console.dir(req.query);
   res.send("home page: " + req.query.name);
+});
+
+//upload form
+app.get("/upload", function(req, res) {
+  var form = fs.readFileSync("./form.html", { encoding: "utf-8" });
+  res.send(form);
 });
 
 app.post("/", urlencodedParser, function(req, res) {
