@@ -1,16 +1,16 @@
 # Nodejs-Express
 
-~~API reference:~~
+**API reference:**
 
 http://expressjs.com/en/4x/api.html
 
-~~guide for Routing:~~
+**guide for Routing:**
 
 http://expressjs.com/en/guide/routing.html
 
-## Upload file:
+## Upload file (multer):
 
-~~Useful links:~~
+**Useful links:**
 
 -https://www.npmjs.com/package/multer
 
