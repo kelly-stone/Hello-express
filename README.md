@@ -17,3 +17,18 @@ http://expressjs.com/en/guide/routing.html
 -https://www.cnblogs.com/chyingp/p/express-multer-file-upload.html
 
 -https://github.com/richardgirges/express-fileupload
+
+**[ejs](https://ejs.co/)**
+
+```let ejs = require('ejs'),
+    users = ['geddy', 'neil', 'alex'];
+
+// Just one template
+ejs.render('<?= users.join(" | "); ?>', {users: users}, {delimiter: '?'});
+// => 'geddy | neil | alex'
+
+// Or globally
+ejs.delimiter = '$';
+ejs.render('<$= users.join(" | "); $>', {users: users});
+// => 'geddy | neil | alex'
+```
