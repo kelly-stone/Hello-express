@@ -18,9 +18,10 @@ http://expressjs.com/en/guide/routing.html
 
 -https://github.com/richardgirges/express-fileupload
 
-**[ejs](https://ejs.co/)**
+**[ejs](https://ejs.co/):**
 
-```let ejs = require('ejs'),
+```
+let ejs = require('ejs'),
     users = ['geddy', 'neil', 'alex'];
 
 // Just one template
