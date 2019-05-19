@@ -56,8 +56,7 @@ app.get("/", function(req, res) {
 
 //upload form
 app.get("/form", function(req, res) {
-  var form = fs.readFileSync("./form.html", { encoding: "utf-8" });
-  res.send(form);
+  res.sendFile(__dirname + "/form.html");
 });
 // https://www.npmjs.com/package/multer
 app.post("/upload", upload.single("logo"), function(req, res) {
