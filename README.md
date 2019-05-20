@@ -8,7 +8,7 @@ http://expressjs.com/en/4x/api.html
 
 http://expressjs.com/en/guide/routing.html
 
-## Upload file (multer)::v::shamrock:
+## Upload file (~~multer~~)::v::shamrock:
 
 **Useful links:**
 
@@ -33,3 +33,11 @@ ejs.delimiter = '$';
 ejs.render('<$= users.join(" | "); $>', {users: users});
 // => 'geddy | neil | alex'
 ```
+
+## Using template engines with Express
+
+https://expressjs.com/en/guide/using-template-engines.html
+
+## Using middleware
+
+http://expressjs.com/en/guide/using-middleware.html
