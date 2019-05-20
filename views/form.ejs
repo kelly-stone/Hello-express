@@ -8,8 +8,17 @@
   </head>
 
   <body>
+    <%- include('partials/header.ejs') -%>
     <h1>
-      <%= person %>
+      <%= data.age %>
+      <h2>Habits:</h2>
+      <ul>
+        <% data.habits.forEach(function(item){ %>
+        <li>
+          <%= item %>
+        </li>
+        <% }) %>
+      </ul>
     </h1>
     <!-- using enctype form-data, its different to urlencoded, postman-->
     <form action="/upload" method="POST" enctype="multipart/form-data">

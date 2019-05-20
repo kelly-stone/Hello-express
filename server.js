@@ -60,9 +60,15 @@ app.get("/", function(req, res) {
 
 //upload form
 app.get("/form/:name", function(req, res) {
-  var person = req.params.name;
-  res.render("form", { person: person }); //sec person = line 63, first person is views/form
+  var data = { age: 28, habits: ["sleeping", "coding", "eating"] };
+  res.render("form", { data: data }); //sec person = line 63, first person is views/form
 });
+
+//header.ejs
+app.get("/about", function(req, res) {
+  res.render("about"); //sec person = line 63, first person is views/form
+});
+
 // https://www.npmjs.com/package/multer
 app.post("/upload", upload.single("logo"), function(req, res) {
   console.dir(req.file);

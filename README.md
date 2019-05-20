@@ -18,7 +18,7 @@ http://expressjs.com/en/guide/routing.html
 
 -https://github.com/richardgirges/express-fileupload
 
-** View [ejs](https://ejs.co/):**
+** View [ejs](https://ejs.co/):** Some popular template engines that work with Express are Pug, Mustache, and EJS. The Express application generator uses Jade as its default, but it also supports several others.
 
 ```
 let ejs = require('ejs'),
