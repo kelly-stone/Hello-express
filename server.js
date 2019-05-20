@@ -3,6 +3,10 @@ var bodyParser = require("body-parser");
 var fs = require("fs");
 
 var app = express();
+
+//Using template engines with Express, https://expressjs.com/en/guide/using-template-engines.html
+app.set("view engine", "ejs");
+
 var multer = require("multer");
 //var upload = multer({ dest: "uploads/" });
 
@@ -55,8 +59,9 @@ app.get("/", function(req, res) {
 });
 
 //upload form
-app.get("/form", function(req, res) {
-  res.sendFile(__dirname + "/form.html");
+app.get("/form/:name", function(req, res) {
+  var person = req.params.name;
+  res.render("form", { person: person }); //sec person = line 63, first person is views/form
 });
 // https://www.npmjs.com/package/multer
 app.post("/upload", upload.single("logo"), function(req, res) {
