@@ -60,7 +60,7 @@ app.get("/", function(req, res) {
 
 //upload form
 app.get("/form/:name", function(req, res) {
-  var data = { age: 28, habits: ["sleeping", "coding", "eating"] };
+  var data = { age: 28, hobbies: ["sleeping", "coding", "eating"] };
   res.render("form", { data: data }); //sec person = line 63, first person is views/form
 });
 
